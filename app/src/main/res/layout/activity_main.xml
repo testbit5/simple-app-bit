@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".presentation.MainActivity">
+
+    <include layout="@layout/toolbar_no_icon" />
+
+    <!-- guidline -->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_left"
+        android:layout_width="@dimen/size_0"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="@dimen/vertical_space_toolbar_icon" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_right"
+        android:layout_width="@dimen/size_0"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="@dimen/vertical_space_toolbar_icon" />
+
+    <!-- content -->
+    <TextView
+        android:id="@+id/tv_choose_cat_header"
+        android:text="@string/choose_cat_header"
+        android:textSize="@dimen/font_size_l"
+        android:textColor="@color/dimGray"
+        android:layout_width="@dimen/size_0"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/horizontal_space_l"
+        app:layout_constraintLeft_toLeftOf="@+id/guideline_left"
+        app:layout_constraintRight_toRightOf="@+id/guideline_right"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+    <TextView
+        android:id="@+id/tv_choose_cat_description"
+        android:text="@string/choose_cat_description"
+        android:textSize="@dimen/font_size_m"
+        android:textColor="@color/darkGrey"
+        android:layout_width="@dimen/size_0"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/horizontal_space_m"
+        app:layout_constraintLeft_toLeftOf="@+id/guideline_left"
+        app:layout_constraintRight_toRightOf="@+id/guideline_right"
+        app:layout_constraintTop_toBottomOf="@+id/tv_choose_cat_header" />
+
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/chip_group"
+        android:layout_width="@dimen/size_0"
+        android:layout_height="@dimen/size_0"
+        android:layout_marginTop="@dimen/horizontal_space_l"
+        android:layout_marginBottom="@dimen/horizontal_space_l"
+        app:chipSpacingHorizontal="@dimen/horizontal_space_s"
+        app:chipSpacingVertical="@dimen/horizontal_space_s"
+        app:layout_constraintTop_toBottomOf="@id/tv_choose_cat_description"
+        app:layout_constraintBottom_toTopOf="@id/btn_done"
+        app:layout_constraintLeft_toLeftOf="@id/guideline_left"
+        app:layout_constraintRight_toRightOf="@id/guideline_right" />
+
+    <!-- button -->
+    <Button
+        android:id="@+id/btn_done"
+        android:text="@string/btn_done"
+        android:textSize="@dimen/font_size_m"
+        android:textColor="@color/white"
+        android:textAllCaps="false"
+        android:layout_width="@dimen/size_0"
+        android:layout_height="@dimen/button_height_l"
+        android:layout_marginBottom="@dimen/horizontal_space_s"
+        android:background="@color/brightSkyBlue"
+        app:layout_constraintLeft_toLeftOf="@+id/guideline_left"
+        app:layout_constraintRight_toRightOf="@+id/guideline_right"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
