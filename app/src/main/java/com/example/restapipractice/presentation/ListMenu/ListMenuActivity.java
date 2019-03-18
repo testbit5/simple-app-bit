@@ -55,7 +55,6 @@ public class ListMenuActivity extends BaseActivity {
     public int getContentView() {
         return R.layout.activity_list_menu;
     }
-    
 
     @Override
     public String getScreenTitle() {
