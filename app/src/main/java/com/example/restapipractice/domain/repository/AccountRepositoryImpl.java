@@ -1,7 +1,10 @@
 package com.example.restapipractice.domain.repository;
 
+import com.example.restapipractice.data.model.Account;
 import com.example.restapipractice.data.network.interceptor.response.CategoryResponse;
 import com.example.restapipractice.data.source.AccountDataSource;
+
+import java.util.List;
 
 import io.reactivex.Observable;
 import io.reactivex.Scheduler;
@@ -23,5 +26,12 @@ public class AccountRepositoryImpl implements AccountRepository {
         return mAccountCloudDataSource.retrieveCategory()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread());
+    }
+
+    @Override
+    public Observable<List<Account>> retrieveAllAccount() {
+
+        //dari source account data source
+        return mAccountLocalDataSource.retrieveAllAccount();
     }
 }

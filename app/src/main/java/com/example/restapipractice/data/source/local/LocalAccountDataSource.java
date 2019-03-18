@@ -1,8 +1,11 @@
 package com.example.restapipractice.data.source.local;
 
+import com.example.restapipractice.data.model.Account;
 import com.example.restapipractice.data.network.interceptor.response.CategoryResponse;
 import com.example.restapipractice.data.source.AccountDataSource;
 import com.example.restapipractice.data.LocalApi;
+
+import java.util.List;
 
 import io.reactivex.Observable;
 
@@ -19,5 +22,11 @@ public class LocalAccountDataSource implements AccountDataSource {
     @Override
     public Observable<CategoryResponse> retrieveCategory() {
         return null;
+    }
+
+    @Override
+    public Observable<List<Account>> retrieveAllAccount() {
+        return mLocalApi.getAccountList();
+
     }
 }
