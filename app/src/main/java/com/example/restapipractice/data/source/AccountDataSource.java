@@ -1,7 +1,10 @@
 package com.example.restapipractice.data.source;
 
 import com.example.restapipractice.data.model.Account;
-import com.example.restapipractice.data.network.interceptor.response.CategoryResponse;
+import com.example.restapipractice.data.network.response.CategoryResponse;
+import com.example.restapipractice.data.network.response.LoginResponse;
+import com.example.restapipractice.data.model.LoginConfigInfo;
+import com.example.restapipractice.data.network.request.LoginRequest;
 
 import java.util.List;
 
@@ -12,4 +15,8 @@ public interface AccountDataSource {
     Observable<CategoryResponse> retrieveCategory();
 
     Observable<List<Account>> retrieveAllAccount();
+
+    Observable<LoginResponse> login(LoginRequest loginRequest);
+
+    Observable<Boolean> saveUsername(LoginConfigInfo loginConfigInfo);
 }

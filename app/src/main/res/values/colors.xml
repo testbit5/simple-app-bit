@@ -8,6 +8,10 @@
     <color name="dimGray">#7a7a7a</color>
     <color name="darkGrey">#313131</color>
     <color name="brightSkyBlue">#00b6f1</color>
-    <color name="lightBlue">#77daf9</color>
+    <color name="lightBlue">
+#51EBB3</color>
+    <color name="darkGreen">#2E8839</color>
     <color name="bluishGrey">#e8eef2</color>
+
+
 </resources>

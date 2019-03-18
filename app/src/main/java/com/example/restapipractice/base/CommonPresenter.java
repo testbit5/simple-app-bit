@@ -13,7 +13,9 @@ public class CommonPresenter {
         }
         else{
             if(throwable instanceof SocketTimeoutException){
-                //default implementation ignored
+                baseView.showFailedErrorMessage(baseView.getErrorMessage());
+            } else {
+                baseView.showFailedErrorMessage(baseView.getErrorMessage());
             }
         }
     }

@@ -24,7 +24,8 @@
     <!-- button start -->
     <dimen name="button_height_l">40dp</dimen>
     <dimen name="chip_stroke">1dp</dimen>
-    <dimen name="chip_radius">25dp</dimen>
+    <dimen name="chip_radius">
+50dp</dimen>
 
 
 </resources>

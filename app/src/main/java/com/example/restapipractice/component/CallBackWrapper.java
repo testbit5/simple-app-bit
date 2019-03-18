@@ -2,7 +2,7 @@ package com.example.restapipractice.component;
 
 import com.example.restapipractice.base.BaseView;
 import com.example.restapipractice.data.network.ServiceApiFail;
-import com.example.restapipractice.data.network.interceptor.response.BaseResponse;
+import com.example.restapipractice.data.network.response.BaseResponse;
 import com.example.restapipractice.utils.CommonUtils;
 
 import io.reactivex.observers.DisposableObserver;

@@ -5,6 +5,7 @@ import android.content.pm.ActivityInfo;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.restapipractice.R;
 
@@ -45,6 +46,14 @@ public abstract class BaseActivity extends AppCompatActivity {
     public void hideLeftMenu(){}
 
     public void hideRightMenu(){}
+
+    public void showFailedErrorMessage(String errorMessage){
+        Toast.makeText(this, errorMessage, Toast.LENGTH_LONG).show();
+    }
+
+    public String getErrorMessage(){
+        return getString(R.string.global_error_message);
+    }
 
     private void setToolbar() {
         setSupportActionBar(mToolbar);

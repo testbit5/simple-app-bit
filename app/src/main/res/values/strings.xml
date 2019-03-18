@@ -4,6 +4,8 @@
     <string name="btn_done">Done</string>
     <string name="btn_try_again">Try Again</string>
     <string name="error_message">Oops&#8230; Something went wrong!</string>
+    
+<string name="global_error_message">Oopsiee&#8230; Something went wrong!</string>
     <!-- general end -->
 
     <!-- choose category screen start -->
@@ -13,6 +15,8 @@
         to help us deliver the most relevant information with your preferences</string>
     <string name="choose_cat_at_least_one">You should choose at least one category!</string>
     <!-- choose category screen end -->
+
+    <string name="login_title">Login</string>
 
 
 </resources>

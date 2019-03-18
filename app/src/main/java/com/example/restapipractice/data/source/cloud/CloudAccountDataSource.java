@@ -2,8 +2,11 @@ package com.example.restapipractice.data.source.cloud;
 
 import com.example.restapipractice.data.RestApi;
 import com.example.restapipractice.data.model.Account;
+import com.example.restapipractice.data.model.LoginConfigInfo;
+import com.example.restapipractice.data.network.request.LoginRequest;
+import com.example.restapipractice.data.network.response.LoginResponse;
 import com.example.restapipractice.data.network.EndpointAddress;
-import com.example.restapipractice.data.network.interceptor.response.CategoryResponse;
+import com.example.restapipractice.data.network.response.CategoryResponse;
 import com.example.restapipractice.data.source.AccountDataSource;
 
 import java.util.List;
@@ -18,6 +21,17 @@ public class CloudAccountDataSource implements AccountDataSource {
 
     @Override
     public Observable<List<Account>> retrieveAllAccount() {
+        return null;
+    }
+
+@Override
+    public Observable<LoginResponse> login(LoginRequest loginRequest) {
+        String fullUrl = EndpointAddress.getApiEndpoint(EndpointAddress.LOGIN);
+        return mRestApi.login(fullUrl,loginRequest);
+    }
+
+    @Override
+    public Observable<Boolean> saveUsername(LoginConfigInfo loginConfigInfo) {
         return null;
     }
 

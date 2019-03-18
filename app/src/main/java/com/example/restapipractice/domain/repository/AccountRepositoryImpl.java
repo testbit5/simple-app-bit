@@ -1,7 +1,11 @@
 package com.example.restapipractice.domain.repository;
 
 import com.example.restapipractice.data.model.Account;
-import com.example.restapipractice.data.network.interceptor.response.CategoryResponse;
+import com.example.restapipractice.data.model.LoginConfigInfo;
+import com.example.restapipractice.data.network.request.LoginRequest;
+
+import com.example.restapipractice.data.network.response.LoginResponse;
+import com.example.restapipractice.data.network.response.CategoryResponse;
 import com.example.restapipractice.data.source.AccountDataSource;
 
 import java.util.List;
@@ -33,5 +37,15 @@ public class AccountRepositoryImpl implements AccountRepository {
 
         //dari source account data source
         return mAccountLocalDataSource.retrieveAllAccount();
+    }
+
+@Override
+    public Observable<LoginResponse> login(LoginRequest loginRequest) {
+        return mAccountCloudDataSource.login(loginRequest);
+    }
+
+    @Override
+    public Observable<Boolean> saveUsername(LoginConfigInfo loginConfigInfo) {
+        return mAccountLocalDataSource.saveUsername(loginConfigInfo);
     }
 }

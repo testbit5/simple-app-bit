@@ -1,4 +1,4 @@
-package com.example.restapipractice.data.network.interceptor.retrofit;
+package com.example.restapipractice.data.network.retrofit;
 
 
 import com.example.android.cleanarchitecture.AndroidApplication;
@@ -72,15 +72,15 @@ public class RetrofitRestApiImpl implements RestApi {
         }
     }
 
+    @Override
+    public Observable<LoginResponse> login(String fullUrl, LoginRequest loginRequest) {
+        return mApiService.login(fullUrl, loginRequest);
+    }
+
     //tinggal ctrl+i untuk manggil dari implement RestApi
     @Override
     public Observable<CategoryResponse> retrieveCategory(String fullUrl) {
 
         return mApiService.retrieveCategory(fullUrl);
-    }
-
-    @Override
-    public Observable<LoginResponse> login(String fullUrl, LoginRequest loginRequest) {
-        return mApiService.login(fullUrl, loginRequest);
     }
 }

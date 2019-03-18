@@ -3,7 +3,7 @@ package com.example.restapipractice.presentation;
 import com.example.restapipractice.base.CommonPresenter;
 import com.example.restapipractice.component.CallBackWrapper;
 import com.example.restapipractice.data.model.Category;
-import com.example.restapipractice.data.network.interceptor.response.CategoryResponse;
+import com.example.restapipractice.data.network.response.CategoryResponse;
 import com.example.restapipractice.domain.usecase.RetrieveCategoryUseCase;
 import com.example.restapipractice.domain.usecase.UseCase;
 import com.example.restapipractice.presentation.mapper.CategoryMapper;

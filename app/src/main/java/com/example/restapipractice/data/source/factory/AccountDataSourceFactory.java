@@ -2,7 +2,7 @@ package com.example.restapipractice.data.source.factory;
 
 import com.example.restapipractice.data.LocalApi;
 import com.example.restapipractice.data.RestApi;
-import com.example.restapipractice.data.network.interceptor.retrofit.RetrofitRestApiImpl;
+import com.example.restapipractice.data.network.retrofit.RetrofitRestApiImpl;
 import com.example.restapipractice.data.realm.RealmDataSource;
 import com.example.restapipractice.data.resolver.ContentResolverDataSource;
 import com.example.restapipractice.data.source.AccountDataSource;

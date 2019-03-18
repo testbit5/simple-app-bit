@@ -62,7 +62,6 @@ public class MainActivity extends BaseActivity implements MainActivityContract.V
         }
     }
 
-
     @Override
     public void showFailedErrorMessage(String errorMessage) {
 

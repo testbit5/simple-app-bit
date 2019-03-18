@@ -1,48 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.example.restapipractice.presentation.LoginActivity">
 
-    <EditText
-        android:id="@+id/editText_name"
-        android:layout_width="wrap_content"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputUname"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="98dp"
-        android:layout_marginTop="94dp"
-        android:layout_marginEnd="100dp"
-        android:ems="10"
-        android:hint="Name"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="10dp"
+        app:errorEnabled="true"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_goneMarginTop="20dp">
 
-    <EditText
-        android:id="@+id/editText_password"
-        android:layout_width="wrap_content"
+        <EditText
+            android:id="@+id/editTextUname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Username" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputPass"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="98dp"
-        android:layout_marginTop="64dp"
-        android:layout_marginEnd="100dp"
-        android:ems="10"
-        android:hint="Password"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText_name" />
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="10dp"
+        app:layout_constraintEnd_toEndOf="@+id/textInputUname"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/textInputUname"
+        app:layout_constraintTop_toBottomOf="@+id/textInputUname">
+
+        <EditText
+            android:id="@+id/editTextPass"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Password"/>
+    </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-        android:id="@+id/btn_login"
-        android:layout_width="244dp"
+        android:id="@+id/btnLogin"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="76dp"
-        android:layout_marginTop="71dp"
-        android:layout_marginEnd="91dp"
-        android:text="Login"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText_password" />
-</android.support.constraint.ConstraintLayout>
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        app:layout_constraintCircleRadius="@dimen/chip_radius"
+        android:text="LOGIN"
+        app:layout_constraintEnd_toEndOf="@+id/textInputPass"
+        app:layout_constraintStart_toStartOf="@+id/textInputPass"
+        app:layout_constraintTop_toBottomOf="@+id/textInputPass" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

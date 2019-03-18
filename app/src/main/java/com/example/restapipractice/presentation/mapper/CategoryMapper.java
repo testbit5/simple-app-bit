@@ -1,7 +1,7 @@
 package com.example.restapipractice.presentation.mapper;
 
 import com.example.restapipractice.data.model.Category;
-import com.example.restapipractice.data.network.interceptor.response.CategoryResponse;
+import com.example.restapipractice.data.network.response.CategoryResponse;
 import com.example.restapipractice.presentation.viewmodel.CategoryVM;
 
 import java.util.ArrayList;

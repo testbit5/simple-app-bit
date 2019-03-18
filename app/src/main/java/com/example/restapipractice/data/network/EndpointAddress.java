@@ -10,7 +10,7 @@ public class EndpointAddress {
 
     }
     public static final String RETRIEVE_CATEGORY ="categories";
-    public static final String LOGIN = "api/login";
+    public static final String LOGIN = "login";
     public static final String GET_ALL_DATA = "";
     public static final String GET_DETAIL_DATA = "";
 
