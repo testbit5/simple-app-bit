@@ -7,6 +7,7 @@ import com.example.restapipractice.domain.repository.AccountRepository;
 import com.example.restapipractice.domain.repository.AccountRepositoryImpl;
 import com.example.restapipractice.domain.usecase.LoginUseCase;
 import com.example.restapipractice.domain.usecase.RetrieveCategoryUseCase;
+import com.example.restapipractice.domain.usecase.SaveLoginUsernameUseCase;
 
 @SuppressWarnings("ALL")
 public class ApplicationComponent {
@@ -33,6 +34,10 @@ public class ApplicationComponent {
 
     public static LoginUseCase executeLogin(){
         return new LoginUseCase(provideLogin());
+    }
+
+    public static SaveLoginUsernameUseCase provideSaveUsername() {
+        return new SaveLoginUsernameUseCase(provideAccountRepository());
     }
 
 }

@@ -1,5 +1,6 @@
 package com.example.restapipractice.presentation;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -9,7 +10,9 @@ import android.widget.EditText;
 import com.example.restapipractice.ApplicationComponent;
 import com.example.restapipractice.R;
 import com.example.restapipractice.base.BaseActivity;
+import com.example.restapipractice.data.model.LoginConfigInfo;
 import com.example.restapipractice.data.network.request.LoginRequest;
+import com.example.restapipractice.presentation.ListMenu.ListMenuActivity;
 import com.google.android.material.textfield.TextInputLayout;
 
 import java.nio.charset.Charset;
@@ -47,6 +50,7 @@ public class LoginActivity extends BaseActivity implements LoginActivityContract
         mBtnLogin.setEnabled(false);
         mPresenter = new LoginActivityPresenter(
                 ApplicationComponent.executeLogin(),
+                ApplicationComponent.provideSaveUsername(),
                 this
         );
     }
@@ -89,6 +93,8 @@ public class LoginActivity extends BaseActivity implements LoginActivityContract
 
     @Override
     public void startNextScreen() {
+        Intent intent = new Intent(LoginActivity.this, ListMenuActivity.class);
+        startActivity(intent);
 
     }
 

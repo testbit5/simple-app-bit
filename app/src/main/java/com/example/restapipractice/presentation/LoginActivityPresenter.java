@@ -12,14 +12,19 @@ import com.example.restapipractice.domain.usecase.RetrieveCategoryUseCase;
 import com.example.restapipractice.domain.usecase.SaveLoginUsernameUseCase;
 import com.example.restapipractice.presentation.mapper.CategoryMapper;
 
+import io.reactivex.observers.DisposableObserver;
+
 public class LoginActivityPresenter extends CommonPresenter implements LoginActivityContract.Presenter {
 
     private LoginUseCase mLoginUseCase;
     private SaveLoginUsernameUseCase mSaveLoginUsernameUseCase;
     private LoginActivityContract.View mView;
 
-    public LoginActivityPresenter(LoginUseCase loginUseCase, LoginActivityContract.View view){
+    public LoginActivityPresenter(LoginUseCase loginUseCase,
+                                  SaveLoginUsernameUseCase saveLoginUsernameUseCase,
+                                  LoginActivityContract.View view){
         mLoginUseCase = loginUseCase;
+        mSaveLoginUsernameUseCase = saveLoginUsernameUseCase;
         mView = view;
     }
 
@@ -32,8 +37,7 @@ public class LoginActivityPresenter extends CommonPresenter implements LoginActi
             protected void onSuccess(LoginResponse response) {
                 mView.hideLoadingBar();
                 if(response.getLoginConfigInfo() != null) {
-                    mSaveLoginUsernameUseCase.saveUsername(response.getLoginConfigInfo());
-                    mView.startNextScreen();
+                    saveUsername(response.getLoginConfigInfo());
                 }
             }
 
@@ -41,6 +45,26 @@ public class LoginActivityPresenter extends CommonPresenter implements LoginActi
             protected void onFailed(Throwable throwable) {
                 mView.hideLoadingBar();
                 showErrorMessage(throwable, mView);
+            }
+        });
+    }
+
+    private void saveUsername(LoginConfigInfo loginConfigInfo){
+        mSaveLoginUsernameUseCase.saveUsername(loginConfigInfo);
+        mSaveLoginUsernameUseCase.execute(new DisposableObserver() {
+            @Override
+            public void onNext(Object o) {
+                mView.startNextScreen();
+            }
+
+            @Override
+            public void onError(Throwable e) {
+
+            }
+
+            @Override
+            public void onComplete() {
+
             }
         });
     }
