@@ -1,7 +1,8 @@
 package com.example.restapipractice.data;
 
-import android.accounts.Account;
 
+
+import com.example.restapipractice.data.model.Account;
 import com.example.restapipractice.data.model.LoginConfigInfo;
 
 import java.util.List;

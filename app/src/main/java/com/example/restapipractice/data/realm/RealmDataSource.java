@@ -1,8 +1,8 @@
 package com.example.restapipractice.data.realm;
 
-import android.accounts.Account;
 
 import com.example.restapipractice.data.LocalApi;
+import com.example.restapipractice.data.model.Account;
 import com.example.restapipractice.data.model.LoginConfigInfo;
 import com.example.restapipractice.data.realm.model.UserInfoRealm;
 
