@@ -6,6 +6,8 @@ import android.util.Log;
 import com.example.restapipractice.R;
 import com.example.restapipractice.base.BaseActivity;
 import com.example.restapipractice.data.model.Account;
+import com.example.restapipractice.presentation.viewmodel.CategoryVM;
+import com.example.restapipractice.presentation.viewmodel.ListMenuVM;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
@@ -15,8 +17,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class ListMenuActivity extends BaseActivity {
+    private List<ListMenuVM> mListMenuVMList = new ArrayList<>();
     private ListMenuAdapter mAdapter;
-    List<Account> mAccounts;
+    private List<Account> mAccounts;
     Account mAccount;
 
     @Override
@@ -33,7 +36,7 @@ public class ListMenuActivity extends BaseActivity {
         mAccounts.add(new Account("1","Tet",35000));
         mAccounts.add(new Account("2","Test",32000));
         mAccounts.add(new Account("3","Tetz",35200));
-        Log.d("TEST maccount",mAccounts.get(0)+"");
+
         mAdapter = new ListMenuAdapter(mAccounts);
 
 //        mAdapter.setMenuList(mAccounts);
