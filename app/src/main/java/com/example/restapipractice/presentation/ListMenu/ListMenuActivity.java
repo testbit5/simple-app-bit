@@ -20,6 +20,7 @@ public class ListMenuActivity extends BaseActivity {
     private List<ListMenuVM> mListMenuVMList = new ArrayList<>();
     private ListMenuAdapter mAdapter;
     private List<Account> mAccounts;
+    private ListMenuContract.Presenter mPresenter;
     Account mAccount;
 
     @Override
@@ -45,11 +46,16 @@ public class ListMenuActivity extends BaseActivity {
 
 
     }
+    private void retrieveMenuList(){
+        mPresenter.retrieveMenuList();
+    }
+
 
     @Override
     public int getContentView() {
         return R.layout.activity_list_menu;
     }
+    
 
     @Override
     public String getScreenTitle() {
