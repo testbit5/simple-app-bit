@@ -4,8 +4,8 @@ import android.annotation.SuppressLint;
 import android.app.Application;
 import android.content.Context;
 
-import com.example.restapipractice.data.realm.model.EncryptionKey;
-import com.example.restapipractice.data.realm.model.SchemaMigration;
+import com.example.restapipractice.data.realm.EncryptionKey;
+import com.example.restapipractice.data.realm.SchemaMigration;
 
 import io.realm.Realm;
 import io.realm.RealmConfiguration;
