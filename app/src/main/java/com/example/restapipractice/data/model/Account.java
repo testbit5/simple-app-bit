@@ -1,5 +1,6 @@
 package com.example.restapipractice.data.model;
 
+import com.example.restapipractice.data.realm.model.AccountRealm;
 import com.google.gson.annotations.SerializedName;
 
 public class Account {
@@ -14,6 +15,12 @@ public class Account {
         this.account_id = account_id;
         this.account_name = account_name;
         this.account_balance = account_balance;
+    }
+
+    public Account(AccountRealm accountRealm){
+        this.account_id = accountRealm.getAccId();
+        this.account_name = accountRealm.getAccName();
+        this.account_balance = accountRealm.getAccBalance();
     }
 
     public String getAccount_id() {
