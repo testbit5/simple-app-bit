@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.pm.ActivityInfo;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.TextView;
 import android.widget.Toast;
 

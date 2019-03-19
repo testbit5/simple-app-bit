@@ -11,6 +11,5 @@ public interface LoginActivityContract {
     }
     interface Presenter extends BasePresenter {
         void OnClickLogin(LoginRequest request);
-
     }
 }

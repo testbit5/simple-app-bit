@@ -4,7 +4,9 @@ import android.util.Log;
 
 import com.example.restapipractice.base.CommonPresenter;
 import com.example.restapipractice.data.model.Account;
+import com.example.restapipractice.data.model.LoginConfigInfo;
 import com.example.restapipractice.domain.usecase.GetListUseCase;
+import com.example.restapipractice.domain.usecase.GetUserInfoUseCase;
 import com.example.restapipractice.domain.usecase.RetrieveCategoryUseCase;
 import com.example.restapipractice.presentation.mapper.ListMenuMapper;
 import com.example.restapipractice.presentation.viewmodel.ListMenuVM;
@@ -16,13 +18,17 @@ import io.reactivex.observers.DisposableObserver;
 public class ListMenuPresenter extends CommonPresenter implements ListMenuContract.Presenter {
 
     private GetListUseCase mGetListUseCase;
+    private GetUserInfoUseCase mGetUserInfoUseCase;
     private ListMenuContract.View mView;
+
 
     public ListMenuPresenter(
             GetListUseCase getListUseCase,
+            GetUserInfoUseCase getUserInfoUseCase,
             ListMenuContract.View view
     ){
         mGetListUseCase = getListUseCase;
+        mGetUserInfoUseCase = getUserInfoUseCase;
         mView = view;
     }
 
@@ -49,6 +55,27 @@ public class ListMenuPresenter extends CommonPresenter implements ListMenuContra
 
     }
 
+    public void getUserInfo(){
+
+        mGetUserInfoUseCase.execute(new DisposableObserver<LoginConfigInfo>() {
+            @Override
+            public void onNext(LoginConfigInfo loginConfigInfo) {
+
+                mView.showSubtitle(loginConfigInfo.getUserFullName());
+            }
+
+            @Override
+            public void onError(Throwable e) {
+
+            }
+
+            @Override
+            public void onComplete() {
+
+            }
+        });
+
+    }
     @Override
     public void destroy() {
         mGetListUseCase.unsubscribe();

@@ -16,6 +16,8 @@ public interface AccountDataSource {
 
     Observable<List<Account>> retrieveAllAccount();
 
+    Observable<LoginConfigInfo> retrieveUserInfo();
+
     Observable<LoginResponse> login(LoginRequest loginRequest);
 
     Observable<Boolean> saveUsername(LoginConfigInfo loginConfigInfo);

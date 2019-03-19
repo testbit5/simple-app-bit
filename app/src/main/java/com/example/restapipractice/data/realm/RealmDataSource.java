@@ -30,6 +30,7 @@ public class RealmDataSource implements LocalApi {
         }
     }
 
+
     @Override
     public Observable<LoginConfigInfo> getUserInfo() {
         Realm realm = Realm.getDefaultInstance();
@@ -43,6 +44,7 @@ public class RealmDataSource implements LocalApi {
         }
 
     }
+
 
     @Override
     public Observable<Boolean> clearUserInfo() {

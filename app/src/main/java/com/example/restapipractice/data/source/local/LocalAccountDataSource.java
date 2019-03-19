@@ -31,10 +31,8 @@ public class LocalAccountDataSource implements AccountDataSource {
     @Override
     public Observable<List<Account>> retrieveAllAccount() {
         return mLocalApi.getAccountList();
-
     }
-
-@Override
+    @Override
     public Observable<LoginResponse> login(LoginRequest loginRequest) {
         return null;
     }
@@ -42,5 +40,9 @@ public class LocalAccountDataSource implements AccountDataSource {
     @Override
     public Observable<Boolean> saveUsername(LoginConfigInfo loginConfigInfo) {
         return mLocalApi.writeUserInfo(loginConfigInfo);
+    }
+    @Override
+    public Observable<LoginConfigInfo> retrieveUserInfo() {
+        return mLocalApi.getUserInfo();
     }
 }

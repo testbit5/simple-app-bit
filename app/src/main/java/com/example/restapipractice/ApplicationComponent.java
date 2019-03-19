@@ -5,6 +5,8 @@ import com.example.restapipractice.data.source.cloud.CloudAccountDataSource;
 import com.example.restapipractice.data.source.factory.AccountDataSourceFactory;
 import com.example.restapipractice.domain.repository.AccountRepository;
 import com.example.restapipractice.domain.repository.AccountRepositoryImpl;
+import com.example.restapipractice.domain.usecase.GetListUseCase;
+import com.example.restapipractice.domain.usecase.GetUserInfoUseCase;
 import com.example.restapipractice.domain.usecase.LoginUseCase;
 import com.example.restapipractice.domain.usecase.RetrieveCategoryUseCase;
 import com.example.restapipractice.domain.usecase.SaveLoginUsernameUseCase;
@@ -38,6 +40,12 @@ public class ApplicationComponent {
 
     public static SaveLoginUsernameUseCase provideSaveUsername() {
         return new SaveLoginUsernameUseCase(provideAccountRepository());
+    }
+    public static GetListUseCase sGetListUseCase(){
+        return new GetListUseCase(provideAccountRepository());
+    }
+    public static GetUserInfoUseCase sGetUserInfoUseCase(){
+        return new GetUserInfoUseCase(provideAccountRepository());
     }
 
 }
