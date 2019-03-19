@@ -34,16 +34,16 @@
             app:layout_constraintTop_toBottomOf="@+id/acc_name"
             tools:text="Balance" />
 
-        <ImageButton
+        <Button
             android:id="@+id/btn_delete"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_alignParentEnd="true"
-            android:src="@drawable/ic_trash"
             android:background="@drawable/ic_trash"
             app:layout_constraintBottom_toBottomOf="@+id/acc_balance"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/acc_name" />
+            app:layout_constraintTop_toTopOf="@+id/acc_name"
+            />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
