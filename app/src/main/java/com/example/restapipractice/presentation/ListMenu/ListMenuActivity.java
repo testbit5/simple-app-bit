@@ -57,6 +57,8 @@ public class ListMenuActivity extends BaseActivity implements ListMenuContract.V
 
         recyclerView.setAdapter(mAdapter);
 
+
+
         getSubtitle();
 //        retrieveMenuList();
 //        showListMenu(mListMenuVMList);

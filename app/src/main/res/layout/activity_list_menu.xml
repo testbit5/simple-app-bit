@@ -26,15 +26,27 @@
         android:layout_gravity="bottom|end"
         android:layout_margin="32dp"
         android:src="@drawable/ic_add" />
+
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:visibility="invisible"
+    android:visibility="visible"
+    android:orientation="vertical"
+    android:layout_marginTop="200dp"
+    android:textAlignment="center"
+    android:layout_marginLeft="100dp"
     >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
+        android:text="You don't have any account"/>
+
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-    />
+        android:text="ADD YOUR FIRST ACCOUNT !" />
 
 </LinearLayout>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

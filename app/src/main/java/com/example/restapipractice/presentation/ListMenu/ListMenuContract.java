@@ -17,6 +17,7 @@ public interface ListMenuContract {
     interface Presenter extends BasePresenter {
         void retrieveMenuList();
         void getUserInfo();
+        void emptyAdapter();
     }
 
 

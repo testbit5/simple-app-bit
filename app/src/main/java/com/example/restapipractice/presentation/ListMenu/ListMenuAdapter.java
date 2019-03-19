@@ -51,7 +51,7 @@ public class ListMenuAdapter extends RecyclerView.Adapter<ListMenuAdapter.ListMe
         ListMenuVM currentAcc = mListMenuVMList.get(position);
         holder.holderName.setText(currentAcc.getAccName());
         holder.holderBalance.setText(currentAcc.getAccBalance());
-//        holder.mTvPriority.setText(String.valueOf(currentAcc.ge));
+
     }
 
     @Override
@@ -75,14 +75,14 @@ public class ListMenuAdapter extends RecyclerView.Adapter<ListMenuAdapter.ListMe
         private TextView holderName;
 
         private TextView holderBalance;
-        private ImageButton holderDelete;
+
 
         public ListMenuHolder(View itemView) {
             super(itemView);
 
             holderName = itemView.findViewById(R.id.acc_name);
             holderBalance = itemView.findViewById(R.id.acc_balance);
-            holderDelete = itemView.findViewById(R.id.btn_delete);
+
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
