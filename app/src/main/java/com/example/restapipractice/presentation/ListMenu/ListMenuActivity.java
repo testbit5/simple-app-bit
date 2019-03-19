@@ -30,6 +30,7 @@ public class ListMenuActivity extends BaseActivity implements ListMenuContract.V
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         FloatingActionButton btn_add = findViewById(R.id.button_add_note);
+
         txtView_subtitle = findViewById(R.id.textView_username);
         RecyclerView recyclerView = findViewById(R.id.recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -37,13 +38,9 @@ public class ListMenuActivity extends BaseActivity implements ListMenuContract.V
 
         initPresenter();
         mAccounts = new ArrayList<>();
-        mAccounts.add(new Account("1","Tet",35000));
-        mAccounts.add(new Account("2","Test",32000));
-        mAccounts.add(new Account("3","Tetz",35200));
 
         mAdapter = new ListMenuAdapter(mAccounts);
         mAdapter.setMenuList(mAccounts);
-//        mAdapter.setMenuList(mAccounts);
 
         recyclerView.setAdapter(mAdapter);
 

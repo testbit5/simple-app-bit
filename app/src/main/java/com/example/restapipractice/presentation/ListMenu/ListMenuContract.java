@@ -18,4 +18,6 @@ public interface ListMenuContract {
         void retrieveMenuList();
         void getUserInfo();
     }
+
+
 }
