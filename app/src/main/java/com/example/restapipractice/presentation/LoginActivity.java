@@ -17,6 +17,7 @@ import com.google.android.material.textfield.TextInputLayout;
 
 import java.nio.charset.Charset;
 
+import androidx.appcompat.widget.Toolbar;
 import butterknife.BindView;
 import butterknife.OnClick;
 import butterknife.OnTextChanged;
@@ -38,12 +39,16 @@ public class LoginActivity extends BaseActivity implements LoginActivityContract
     @BindView(R.id.btnLogin)
     Button mBtnLogin;
 
+    @BindView(R.id.toolbarLogin)
+    Toolbar mToolbarLogin;
+
     private LoginActivityPresenter mPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         initPresenter();
+        setSupportActionBar(mToolbarLogin);
     }
 
     private void initPresenter(){

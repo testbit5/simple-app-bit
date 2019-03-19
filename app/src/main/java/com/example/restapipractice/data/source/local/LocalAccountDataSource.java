@@ -3,7 +3,6 @@ package com.example.restapipractice.data.source.local;
 import com.example.restapipractice.data.model.Account;
 import com.example.restapipractice.data.network.response.CategoryResponse;
 import com.example.restapipractice.data.model.LoginConfigInfo;
-import com.example.restapipractice.data.network.EndpointAddress;
 import com.example.restapipractice.data.network.request.LoginRequest;
 import com.example.restapipractice.data.network.response.LoginResponse;
 import com.example.restapipractice.data.source.AccountDataSource;
@@ -31,10 +30,9 @@ public class LocalAccountDataSource implements AccountDataSource {
     @Override
     public Observable<List<Account>> retrieveAllAccount() {
         return mLocalApi.getAccountList();
-
     }
 
-@Override
+    @Override
     public Observable<LoginResponse> login(LoginRequest loginRequest) {
         return null;
     }
@@ -42,5 +40,10 @@ public class LocalAccountDataSource implements AccountDataSource {
     @Override
     public Observable<Boolean> saveUsername(LoginConfigInfo loginConfigInfo) {
         return mLocalApi.writeUserInfo(loginConfigInfo);
+    }
+
+    @Override
+    public Observable<Boolean> saveAccount(Account saveAccount) {
+        return mLocalApi.addAccount(saveAccount);
     }
 }

@@ -55,17 +55,16 @@ public class RealmDataSource implements LocalApi {
 
     @Override
     public Observable<Boolean> addAccount(Account account) {
-//        if(account != null){
-//            AccountRealm accountRealm = new AccountRealm(account);
-//            Realm realm = Realm.getDefaultInstance();
-//            realm.executeTransaction(transactionRealm ->
-//                    transactionRealm.copyToRealmOrUpdate(accountRealm));
-//            realm.close();
-//            return Observable.just(realm.isClosed());
-//        } else {
-//            return Observable.just(true);
-//        }
-        return null;
+        if(account != null){
+            AccountRealm accountRealm = new AccountRealm(account);
+            Realm realm = Realm.getDefaultInstance();
+            realm.executeTransaction(transactionRealm ->
+                    transactionRealm.copyToRealm(accountRealm));
+            realm.close();
+            return Observable.just(realm.isClosed());
+        } else {
+            return Observable.just(true);
+        }
     }
 
     /*
@@ -79,7 +78,6 @@ public class RealmDataSource implements LocalApi {
         }else{
             return Observable.just(new LoginConfigInfo());
         }
-
     }
      */
     @Override
@@ -115,7 +113,6 @@ public class RealmDataSource implements LocalApi {
 //        }else{
 //            return Observable.just(userInfoRealm);
 //        }
-
 
         return null;
     }

@@ -17,6 +17,7 @@
     <!-- choose category screen end -->
 
     <string name="login_title">Login</string>
+    <string name="add_account_title">Add Account</string>
 
 
 </resources>

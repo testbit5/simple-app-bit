@@ -34,9 +34,9 @@ public class ListMenuActivity extends BaseActivity {
         recyclerView.setHasFixedSize(true);
 //        mAccounts = new ArrayList<>();
         mAccounts = new ArrayList<>();
-        mAccounts.add(new Account("1","Tet",35000));
-        mAccounts.add(new Account("2","Test",32000));
-        mAccounts.add(new Account("3","Tetz",35200));
+        mAccounts.add(new Account("Tet","35000"));
+        mAccounts.add(new Account("Test","32000"));
+        mAccounts.add(new Account("Tetz","35200"));
 
         mAdapter = new ListMenuAdapter(mAccounts);
 
@@ -49,7 +49,6 @@ public class ListMenuActivity extends BaseActivity {
     private void retrieveMenuList(){
         mPresenter.retrieveMenuList();
     }
-
 
     @Override
     public int getContentView() {

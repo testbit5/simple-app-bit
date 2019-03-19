@@ -40,4 +40,9 @@ public class CloudAccountDataSource implements AccountDataSource {
         String fullUrl = EndpointAddress.getApiEndpoint(EndpointAddress.RETRIEVE_CATEGORY);
         return mRestApi.retrieveCategory(fullUrl);
     }
+
+    @Override
+    public Observable<Boolean> saveAccount(Account saveAccount) {
+        return null;
+    }
 }

@@ -7,6 +7,7 @@ import com.example.restapipractice.domain.repository.AccountRepository;
 import com.example.restapipractice.domain.repository.AccountRepositoryImpl;
 import com.example.restapipractice.domain.usecase.LoginUseCase;
 import com.example.restapipractice.domain.usecase.RetrieveCategoryUseCase;
+import com.example.restapipractice.domain.usecase.SaveAccountDataUseCase;
 import com.example.restapipractice.domain.usecase.SaveLoginUsernameUseCase;
 
 @SuppressWarnings("ALL")
@@ -20,13 +21,13 @@ public class ApplicationComponent {
                accountDataSourceFactory.createLocalDataSource()
         );
     }
+
     public static AccountRepository provideLogin(){
         AccountDataSourceFactory accountDataSourceFactory = new AccountDataSourceFactory();
         return new AccountRepositoryImpl(accountDataSourceFactory.createCloudDataSource(),
                 accountDataSourceFactory.createLocalDataSource()
                 );
     }
-
 
     public static RetrieveCategoryUseCase provideCategory(){
         return new RetrieveCategoryUseCase(provideAccountRepository());
@@ -38,6 +39,10 @@ public class ApplicationComponent {
 
     public static SaveLoginUsernameUseCase provideSaveUsername() {
         return new SaveLoginUsernameUseCase(provideAccountRepository());
+    }
+
+    public static SaveAccountDataUseCase provideSaveAccountData(){
+        return new SaveAccountDataUseCase(provideAccountRepository());
     }
 
 }

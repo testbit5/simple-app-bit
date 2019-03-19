@@ -11,7 +11,6 @@ import com.example.restapipractice.data.source.AccountDataSource;
 import java.util.List;
 
 import io.reactivex.Observable;
-import io.reactivex.Scheduler;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 
@@ -47,5 +46,10 @@ public class AccountRepositoryImpl implements AccountRepository {
     @Override
     public Observable<Boolean> saveUsername(LoginConfigInfo loginConfigInfo) {
         return mAccountLocalDataSource.saveUsername(loginConfigInfo);
+    }
+
+    @Override
+    public Observable<Boolean> saveAccount(Account saveAccount) {
+        return mAccountLocalDataSource.saveAccount(saveAccount);
     }
 }

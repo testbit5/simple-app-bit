@@ -1,6 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.restapipractice.presentation.LoginActivity">
+
+    <include
+        android:id="@+id/toolbarAddAccount"
+        layout="@layout/toolbar_back_btn">
+
+    </include>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputAccName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="10dp"
+        app:errorEnabled="true"
+        app:layout_constraintTop_toBottomOf="@id/toolbarAddAccount"
+        app:layout_goneMarginTop="20dp">
+
+        <EditText
+            android:id="@+id/editTextAccName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Account Name" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputAccBalance"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        app:layout_constraintEnd_toEndOf="@+id/textInputAccName"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/textInputAccName"
+        app:layout_constraintTop_toBottomOf="@+id/textInputAccName">
+
+        <EditText
+            android:id="@+id/editTextAccBalance"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:inputType="number"
+            android:hint="Account Balance"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/btnSaveAccount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="10dp"
+        android:text="Save"
+        app:layout_constraintCircleRadius="@dimen/chip_radius"
+        app:layout_constraintEnd_toEndOf="@+id/textInputAccBalance"
+        app:layout_constraintStart_toStartOf="@+id/textInputAccBalance"
+        app:layout_constraintTop_toBottomOf="@+id/textInputAccBalance" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

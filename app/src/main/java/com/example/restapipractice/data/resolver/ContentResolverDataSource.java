@@ -42,9 +42,4 @@ public class ContentResolverDataSource implements LocalApi {
         return null;
     }
 
-//    public Observable<Boolean> writeUserInfo(LoginConfigInfo loginConfigInfo){
-//        return null;
-//    }
-
-
 }

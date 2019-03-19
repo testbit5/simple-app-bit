@@ -3,6 +3,8 @@ package com.example.restapipractice.data.realm.model;
 
 import com.example.restapipractice.data.model.Account;
 
+import java.util.UUID;
+
 import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
 
@@ -10,20 +12,20 @@ public class AccountRealm extends RealmObject {
     @PrimaryKey
     private String accId;
     private String accName;
-    private Integer accBalance;
+    private String accBalance;
 
     public AccountRealm() {
     }
 
     public AccountRealm(Account account){
-        accId = account.getAccount_id();
+        accId = UUID.randomUUID().toString();
         accName = account.getAccount_name();
         accBalance = account.getAccount_balance();
 
     }
 
     public String getAccId() {
-        return accId;
+        return UUID.randomUUID().toString();
     }
 
     public void setAccId(String accId) {
@@ -38,11 +40,11 @@ public class AccountRealm extends RealmObject {
         this.accName = accName;
     }
 
-    public Integer getAccBalance() {
+    public String getAccBalance() {
         return accBalance;
     }
 
-    public void setAccBalance(Integer accBalance) {
+    public void setAccBalance(String accBalance) {
         this.accBalance = accBalance;
     }
 }

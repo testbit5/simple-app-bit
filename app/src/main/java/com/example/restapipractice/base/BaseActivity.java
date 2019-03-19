@@ -49,6 +49,7 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     public void showFailedErrorMessage(String errorMessage){
         Toast.makeText(this, errorMessage, Toast.LENGTH_LONG).show();
+        //gantialertdialog
     }
 
     public String getErrorMessage(){

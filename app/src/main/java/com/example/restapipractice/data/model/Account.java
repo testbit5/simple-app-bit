@@ -9,10 +9,9 @@ public class Account {
     @SerializedName("accName")
     private String account_name;
     @SerializedName("accBalance")
-    private int account_balance;
+    private String account_balance;
 
-    public Account(String account_id, String account_name, int account_balance) {
-        this.account_id = account_id;
+    public Account(String account_name, String account_balance) {
         this.account_name = account_name;
         this.account_balance = account_balance;
     }
@@ -39,11 +38,11 @@ public class Account {
         this.account_name = account_name;
     }
 
-    public int getAccount_balance() {
+    public String getAccount_balance() {
         return account_balance;
     }
 
-    public void setAccount_balance(int account_balance) {
+    public void setAccount_balance(String account_balance) {
         this.account_balance = account_balance;
     }
 }

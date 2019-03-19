@@ -2,7 +2,6 @@ package com.example.restapipractice.domain.repository;
 
 import com.example.restapipractice.data.model.Account;
 
-
 import com.example.restapipractice.data.model.LoginConfigInfo;
 import com.example.restapipractice.data.network.request.LoginRequest;
 import com.example.restapipractice.data.network.response.CategoryResponse;
@@ -22,4 +21,6 @@ public interface AccountRepository {
     Observable<LoginResponse> login(LoginRequest loginRequest);
 
     Observable<Boolean> saveUsername(LoginConfigInfo loginConfigInfo);
+
+    Observable<Boolean> saveAccount(Account saveAccount);
 }

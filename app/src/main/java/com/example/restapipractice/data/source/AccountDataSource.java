@@ -19,4 +19,6 @@ public interface AccountDataSource {
     Observable<LoginResponse> login(LoginRequest loginRequest);
 
     Observable<Boolean> saveUsername(LoginConfigInfo loginConfigInfo);
+
+    Observable<Boolean> saveAccount(Account saveAccount);
 }
