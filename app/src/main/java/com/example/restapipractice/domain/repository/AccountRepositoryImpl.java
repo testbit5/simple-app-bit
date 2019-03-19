@@ -55,4 +55,10 @@ public class AccountRepositoryImpl implements AccountRepository {
     public Observable<LoginConfigInfo> retrieveUserInfo() {
         return mAccountLocalDataSource.retrieveUserInfo();
     }
+
+    @Override
+    public Observable<Boolean> deleteAccount(Account deleteAccount) {
+        return mAccountLocalDataSource.deleteAccount(deleteAccount);
+    }
+
 }

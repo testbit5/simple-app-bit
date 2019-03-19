@@ -16,6 +16,12 @@ public class Account {
         this.account_balance = account_balance;
     }
 
+    public Account(String account_name, String account_balance, String account_id) {
+        this.account_name = account_name;
+        this.account_balance = account_balance;
+        this.account_id = account_id;
+    }
+
     public Account(AccountRealm accountRealm){
         this.account_id = accountRealm.getAccId();
         this.account_name = accountRealm.getAccName();

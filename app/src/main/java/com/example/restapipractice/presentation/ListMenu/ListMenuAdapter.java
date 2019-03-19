@@ -2,10 +2,14 @@ package com.example.restapipractice.presentation.ListMenu;
 
 import android.support.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.restapipractice.R;
@@ -31,8 +35,11 @@ public class ListMenuAdapter extends RecyclerView.Adapter<ListMenuAdapter.ListMe
 
 
     public interface OnItemClickListener {
-        void onItemClick(ListMenuVM listMenuVM);
+        void onItemClick(ListMenuVM account);
     }
+
+
+
     public void setOnItemClickListener(OnItemClickListener listener) {
         mListener = listener;
     }
@@ -51,6 +58,14 @@ public class ListMenuAdapter extends RecyclerView.Adapter<ListMenuAdapter.ListMe
         ListMenuVM currentAcc = mListMenuVMList.get(position);
         holder.holderName.setText(currentAcc.getAccName());
         holder.holderBalance.setText(currentAcc.getAccBalance());
+
+        holder.holderDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d("OnBindVIewHolder","Test");
+                mListener.onItemClick(currentAcc);
+            }
+        });
 
     }
 
@@ -75,6 +90,7 @@ public class ListMenuAdapter extends RecyclerView.Adapter<ListMenuAdapter.ListMe
         private TextView holderName;
 
         private TextView holderBalance;
+        private ImageView holderDelete;
 
 
         public ListMenuHolder(View itemView) {
@@ -82,16 +98,21 @@ public class ListMenuAdapter extends RecyclerView.Adapter<ListMenuAdapter.ListMe
 
             holderName = itemView.findViewById(R.id.acc_name);
             holderBalance = itemView.findViewById(R.id.acc_balance);
+            holderDelete = itemView.findViewById(R.id.btn_delete);
 
 
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    int position = getAdapterPosition();
-                    if (mListener != null && position != RecyclerView.NO_POSITION)
-                        mListener.onItemClick(mListMenuVMList.get(position));
-                }
-            });
+//            itemView.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    int position = getAdapterPosition();
+//                    if (mListener != null && position != RecyclerView.NO_POSITION)
+//                    {
+//                        mListener.onItemClick(mListMenuVMList.get(position));
+//
+//                    }
+//                }
+//            });
+
 
         }
 

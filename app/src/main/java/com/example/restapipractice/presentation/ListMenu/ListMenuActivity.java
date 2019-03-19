@@ -1,10 +1,12 @@
 package com.example.restapipractice.presentation.ListMenu;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.restapipractice.ApplicationComponent;
 import com.example.restapipractice.R;
@@ -19,6 +21,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.util.ArrayList;
 import java.util.List;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -28,7 +31,7 @@ public class ListMenuActivity extends BaseActivity implements ListMenuContract.V
     private ListMenuAdapter mAdapter;
 
     private ListMenuContract.Presenter mPresenter;
-
+    Account mAccount;
     TextView txtView_subtitle;
     FloatingActionButton btn_add;
     RecyclerView recyclerView;
@@ -57,11 +60,40 @@ public class ListMenuActivity extends BaseActivity implements ListMenuContract.V
 
         recyclerView.setAdapter(mAdapter);
 
+        mAdapter.setOnItemClickListener(new ListMenuAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(ListMenuVM listMenuVM) {
+                Log.d("TestButton","asd");
+                showDeleteAlertDialog(listMenuVM);
+                Toast.makeText(ListMenuActivity.this, "TEST " + listMenuVM.getAccId(), Toast.LENGTH_SHORT).show();
+            }
+        });
 
 
         getSubtitle();
 //        retrieveMenuList();
 //        showListMenu(mListMenuVMList);
+    }
+
+
+
+    public void showDeleteAlertDialog(ListMenuVM account){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage("Are you sure you want to delete this Account?");
+        builder.setNegativeButton("No",
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface arg0, int arg1) {
+                    }
+                });
+
+        builder.setPositiveButton("Yes",new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                mPresenter.deleteAccount(account);
+            }
+        });
+        builder.show();
     }
 
     @Override
@@ -76,6 +108,7 @@ public class ListMenuActivity extends BaseActivity implements ListMenuContract.V
         mPresenter = new ListMenuPresenter(
                 ApplicationComponent.sGetListUseCase(),
                 ApplicationComponent.sGetUserInfoUseCase(),
+                ApplicationComponent.provideDeleteUseCase(),
                 this
         );
     }
