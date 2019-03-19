@@ -23,13 +23,15 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class ListMenuActivity extends BaseActivity implements ListMenuContract.View {
-    private List<ListMenuVM> mListMenuVMList = new ArrayList<>();
+    private List<ListMenuVM> mListMenuVMList;
+
     private ListMenuAdapter mAdapter;
-    private List<Account> mAccounts;
+
     private ListMenuContract.Presenter mPresenter;
-    Account mAccount;
+
     TextView txtView_subtitle;
     FloatingActionButton btn_add;
+    RecyclerView recyclerView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,24 +45,29 @@ public class ListMenuActivity extends BaseActivity implements ListMenuContract.V
         });
 
         txtView_subtitle = findViewById(R.id.textView_username);
-        RecyclerView recyclerView = findViewById(R.id.recycler_view);
+        recyclerView = findViewById(R.id.recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setHasFixedSize(true);
 
         initPresenter();
-        mAccounts = new ArrayList<>();
 
-        mAccounts.add(new Account("Tet","35000"));
-        mAccounts.add(new Account("Test","32000"));
-        mAccounts.add(new Account("Tetz","35200"));
+        mListMenuVMList = new ArrayList<>();
 
-        mAdapter = new ListMenuAdapter(mAccounts);
-        mAdapter.setMenuList(mAccounts);
+        mAdapter = new ListMenuAdapter(mListMenuVMList);
 
         recyclerView.setAdapter(mAdapter);
 
         getSubtitle();
+//        retrieveMenuList();
+//        showListMenu(mListMenuVMList);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.d("ON RESUME","RESUME");
         retrieveMenuList();
+
     }
 
     private void initPresenter(){
@@ -87,9 +94,12 @@ public class ListMenuActivity extends BaseActivity implements ListMenuContract.V
 
     @Override
     public void showListMenu(List<ListMenuVM> ListMenuVMList) {
+        Log.d("ListMenuVMList SIZE = " , ListMenuVMList.size()+"");
+
+        mAdapter.setMenuList(ListMenuVMList);
 
     }
-
+    //getSubtitle -> panggil method getUserInfo di presenter-> panggil showSubtitle
     private void getSubtitle(){
         mPresenter.getUserInfo();
     }

@@ -24,6 +24,7 @@ public class AddAccountPresenter extends CommonPresenter implements AddAccountCo
         mSaveAccountDataUseCase.execute(new DisposableObserver() {
             @Override
             public void onNext(Object o) {
+                mView.hideLoadingBar();
                 mView.showListAccount();
             }
 

@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.example.restapipractice.R;
 import com.example.restapipractice.data.model.Account;
+import com.example.restapipractice.presentation.viewmodel.ListMenuVM;
 
 import org.w3c.dom.Text;
 
@@ -20,13 +21,17 @@ public class ListMenuAdapter extends RecyclerView.Adapter<ListMenuAdapter.ListMe
 
     private OnItemClickListener mListener;
     private List<Account> mAccounts;
+    private List<ListMenuVM> mListMenuVMList;
+
     //constructor
-    public ListMenuAdapter(List<Account> accounts){mAccounts = accounts;}
+//    public ListMenuAdapter(List<Account> accounts){mAccounts = accounts;}
+
+    public ListMenuAdapter(List<ListMenuVM> listMenu){mListMenuVMList = listMenu;}
 
 
 
     public interface OnItemClickListener {
-        void onItemClick(Account account);
+        void onItemClick(ListMenuVM listMenuVM);
     }
     public void setOnItemClickListener(OnItemClickListener listener) {
         mListener = listener;
@@ -43,25 +48,25 @@ public class ListMenuAdapter extends RecyclerView.Adapter<ListMenuAdapter.ListMe
 
     @Override
     public void onBindViewHolder(@NonNull ListMenuHolder holder, int position) {
-        Account currentAcc = mAccounts.get(position);
-        holder.holderName.setText(currentAcc.getAccount_name());
-        holder.holderBalance.setText(currentAcc.getAccount_balance()+"");
+        ListMenuVM currentAcc = mListMenuVMList.get(position);
+        holder.holderName.setText(currentAcc.getAccName());
+        holder.holderBalance.setText(currentAcc.getAccBalance());
 //        holder.mTvPriority.setText(String.valueOf(currentAcc.ge));
     }
 
     @Override
     public int getItemCount() {
-        return mAccounts.size();
+        return mListMenuVMList.size();
     }
 
     //pengganti constructor
-    public void setMenuList(List<Account> accounts) {
-        this.mAccounts = accounts;
+    public void setMenuList(List<ListMenuVM> listMenuVMList) {
+        this.mListMenuVMList = listMenuVMList;
         notifyDataSetChanged();
     }
 
-    public Account getAccountAt(int position) {
-        return mAccounts.get(position);
+    public ListMenuVM getAccountAt(int position) {
+        return mListMenuVMList.get(position);
     }
 
     // inner class NoteHolder
@@ -84,7 +89,7 @@ public class ListMenuAdapter extends RecyclerView.Adapter<ListMenuAdapter.ListMe
                 public void onClick(View v) {
                     int position = getAdapterPosition();
                     if (mListener != null && position != RecyclerView.NO_POSITION)
-                        mListener.onItemClick(mAccounts.get(position));
+                        mListener.onItemClick(mListMenuVMList.get(position));
                 }
             });
 

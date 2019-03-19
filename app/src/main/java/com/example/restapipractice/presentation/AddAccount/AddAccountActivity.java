@@ -75,5 +75,6 @@ public class AddAccountActivity extends BaseActivity implements AddAccountContra
     protected void onDestroy() {
         super.onDestroy();
         mAddAccountPresenter.destroy();
+
     }
 }

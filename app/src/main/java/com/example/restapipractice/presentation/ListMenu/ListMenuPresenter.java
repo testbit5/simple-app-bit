@@ -38,8 +38,8 @@ public class ListMenuPresenter extends CommonPresenter implements ListMenuContra
         mGetListUseCase.execute(new DisposableObserver<List<Account>>() {
             @Override
             public void onNext(List<Account> accountList) {
-                Log.d("OnNext presenter","TEST");
                 mView.showListMenu(ListMenuMapper.transform(accountList));
+
             }
 
             @Override
