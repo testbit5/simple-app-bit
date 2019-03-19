@@ -46,4 +46,9 @@ public class LocalAccountDataSource implements AccountDataSource {
     public Observable<Boolean> saveAccount(Account saveAccount) {
         return mLocalApi.addAccount(saveAccount);
     }
+
+    @Override
+    public Observable<LoginConfigInfo> retrieveUserInfo() {
+        return mLocalApi.getUserInfo();
+    }
 }

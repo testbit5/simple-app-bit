@@ -33,7 +33,6 @@ public class AccountRepositoryImpl implements AccountRepository {
 
     @Override
     public Observable<List<Account>> retrieveAllAccount() {
-
         //dari source account data source
         return mAccountLocalDataSource.retrieveAllAccount();
     }
@@ -51,5 +50,9 @@ public class AccountRepositoryImpl implements AccountRepository {
     @Override
     public Observable<Boolean> saveAccount(Account saveAccount) {
         return mAccountLocalDataSource.saveAccount(saveAccount);
+    }
+
+    public Observable<LoginConfigInfo> retrieveUserInfo() {
+        return mAccountLocalDataSource.retrieveUserInfo();
     }
 }

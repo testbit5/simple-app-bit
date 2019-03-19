@@ -42,7 +42,10 @@ public class CloudAccountDataSource implements AccountDataSource {
     }
 
     @Override
-    public Observable<Boolean> saveAccount(Account saveAccount) {
+    public Observable<Boolean> saveAccount(Account saveAccount) { return null; }
+
+    @Override
+    public Observable<LoginConfigInfo> retrieveUserInfo() {
         return null;
     }
 }

@@ -14,9 +14,10 @@ import io.reactivex.Observable;
 public interface AccountRepository {
 
     Observable<CategoryResponse> retrieveCategory();
-
     //Get List Accounts
     Observable<List<Account>> retrieveAllAccount();
+    //Get an Account
+    Observable<LoginConfigInfo> retrieveUserInfo();
 
     Observable<LoginResponse> login(LoginRequest loginRequest);
 

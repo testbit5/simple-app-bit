@@ -14,10 +14,11 @@
     <string name="choose_cat_description">Pick 5 top scholarship categories that you are interested
         to help us deliver the most relevant information with your preferences</string>
     <string name="choose_cat_at_least_one">You should choose at least one category!</string>
+
     <!-- choose category screen end -->
 
     <string name="login_title">Login</string>
     <string name="add_account_title">Add Account</string>
-
+    <string name="accountList">Account List</string>
 
 </resources>
