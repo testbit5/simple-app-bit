@@ -1,13 +1,16 @@
 package com.example.restapipractice.presentation.ListMenu;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.TextView;
 
 import com.example.restapipractice.ApplicationComponent;
 import com.example.restapipractice.R;
 import com.example.restapipractice.base.BaseActivity;
 import com.example.restapipractice.data.model.Account;
+import com.example.restapipractice.presentation.AddAccount.AddAccountActivity;
 import com.example.restapipractice.presentation.LoginActivityPresenter;
 import com.example.restapipractice.presentation.viewmodel.CategoryVM;
 import com.example.restapipractice.presentation.viewmodel.ListMenuVM;
@@ -26,10 +29,18 @@ public class ListMenuActivity extends BaseActivity implements ListMenuContract.V
     private ListMenuContract.Presenter mPresenter;
     Account mAccount;
     TextView txtView_subtitle;
+    FloatingActionButton btn_add;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        FloatingActionButton btn_add = findViewById(R.id.button_add_note);
+        btn_add = findViewById(R.id.button_add_note);
+        btn_add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ListMenuActivity.this, AddAccountActivity.class);
+                startActivity(intent);
+            }
+        });
 
         txtView_subtitle = findViewById(R.id.textView_username);
         RecyclerView recyclerView = findViewById(R.id.recycler_view);
@@ -49,7 +60,7 @@ public class ListMenuActivity extends BaseActivity implements ListMenuContract.V
         recyclerView.setAdapter(mAdapter);
 
         getSubtitle();
-
+        retrieveMenuList();
     }
 
     private void initPresenter(){
@@ -85,5 +96,10 @@ public class ListMenuActivity extends BaseActivity implements ListMenuContract.V
     @Override
     public void showSubtitle(String subtitle) {
         txtView_subtitle.setText(subtitle);
+    }
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        mPresenter.destroy();
     }
 }

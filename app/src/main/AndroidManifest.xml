@@ -21,7 +21,9 @@
         </activity>
         <activity android:name=".presentation.ListMenu.ListMenuActivity"/>
         <activity android:name=".presentation.MainActivity">
-        </activity> <!-- provider digunakan untuk testing, untuk bikin lebih dari 1 apk(gausa replace) -->
+        </activity>
+        <!-- provider digunakan untuk testing, untuk bikin lebih dari 1 apk(gausa replace) -->
+        <activity android:name=".presentation.AddAccount.AddAccountActivity"></activity>
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="${applicationId}.provider"

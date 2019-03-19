@@ -72,5 +72,7 @@ public class LoginActivityPresenter extends CommonPresenter implements LoginActi
     @Override
     public void destroy() {
         mLoginUseCase.unsubscribe();
+        mSaveLoginUsernameUseCase.unsubscribe();
     }
+
 }

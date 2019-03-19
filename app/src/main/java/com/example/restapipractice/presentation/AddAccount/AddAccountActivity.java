@@ -29,29 +29,28 @@ public class AddAccountActivity extends BaseActivity implements AddAccountContra
     @BindView(R.id.btnSaveAccount)
     Button mBtnSaveAccount;
 
-    @BindView(R.id.toolbarBackBtn)
-    Toolbar mToolbar;
-
     private AddAccountPresenter mAddAccountPresenter;
 
-    String accName = mAccName.getText().toString();
-    String accBalance = mAccBalance.getText().toString();
+    String accName = "";
+    String accBalance = "";
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         initPresenter();
-        setSupportActionBar(mToolbar);
+//        setSupportActionBar(mToolbar);
     }
 
     public void initPresenter(){
-        mBtnSaveAccount.setEnabled(false);
+        mBtnSaveAccount.setEnabled(true);
         mAddAccountPresenter = new AddAccountPresenter(ApplicationComponent.provideSaveAccountData(),
                 this);
     }
 
     @OnClick(R.id.btnSaveAccount)
     void OnClickSaveBtn(){
+        accName = mAccName.getText().toString();
+        accBalance = mAccBalance.getText().toString();
         Account saveRequest = new Account(accName, accBalance);
         mAddAccountPresenter.onClickSaveAccount(saveRequest);
     }
@@ -70,5 +69,11 @@ public class AddAccountActivity extends BaseActivity implements AddAccountContra
     public void showListAccount() {
         setResult(RESULT_OK);
         finish();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        mAddAccountPresenter.destroy();
     }
 }

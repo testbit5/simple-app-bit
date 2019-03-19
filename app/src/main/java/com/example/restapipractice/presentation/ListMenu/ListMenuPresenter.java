@@ -79,5 +79,6 @@ public class ListMenuPresenter extends CommonPresenter implements ListMenuContra
     @Override
     public void destroy() {
         mGetListUseCase.unsubscribe();
+        mGetUserInfoUseCase.unsubscribe();
     }
 }

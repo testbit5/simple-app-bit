@@ -117,4 +117,9 @@ public class LoginActivity extends BaseActivity implements LoginActivityContract
     public void onPointerCaptureChanged(boolean hasCapture) {
 
     }
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        mPresenter.destroy();
+    }
 }
