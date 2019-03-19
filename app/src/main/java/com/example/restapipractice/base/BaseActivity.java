@@ -1,6 +1,8 @@
 package com.example.restapipractice.base;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.pm.ActivityInfo;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -51,6 +53,16 @@ public abstract class BaseActivity extends AppCompatActivity {
     public void showFailedErrorMessage(String errorMessage){
         Toast.makeText(this, errorMessage, Toast.LENGTH_LONG).show();
         //gantialertdialog
+
+        AlertDialog.Builder alert = new AlertDialog.Builder(this);
+        alert.setMessage(errorMessage);
+        alert.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+            }
+        });
+
+        alert.show();
     }
 
     public String getErrorMessage(){
