@@ -38,7 +38,7 @@ public class ContentResolverDataSource implements LocalApi {
     }
 
     @Override
-    public Observable<Boolean> deleteAccount(Account account) {
+    public Observable<Boolean> deleteAccount(String accountId) {
         return null;
     }
 

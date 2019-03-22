@@ -57,8 +57,7 @@ public class AccountRepositoryImpl implements AccountRepository {
     }
 
     @Override
-    public Observable<Boolean> deleteAccount(Account deleteAccount) {
-        return mAccountLocalDataSource.deleteAccount(deleteAccount);
+    public Observable<Boolean> deleteAccount(String accountId) {
+        return mAccountLocalDataSource.deleteAccount(accountId);
     }
-
 }

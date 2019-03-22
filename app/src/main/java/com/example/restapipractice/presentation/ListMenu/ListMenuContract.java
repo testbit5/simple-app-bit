@@ -18,7 +18,7 @@ public interface ListMenuContract {
     interface Presenter extends BasePresenter {
         void retrieveMenuList();
         void getUserInfo();
-        void deleteAccount(ListMenuVM accountVM);
+        void deleteAccount(String accountId);
     }
 
 

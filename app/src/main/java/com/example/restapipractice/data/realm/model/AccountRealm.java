@@ -26,8 +26,16 @@ public class AccountRealm extends RealmObject {
 
     }
 
+
+    // Ini penyebab error kemarin
+    //          | |
+    //          \/
+//    public String getAccId() {
+//        return UUID.randomUUID().toString();
+//    }
+
     public String getAccId() {
-        return UUID.randomUUID().toString();
+        return accId;
     }
 
     public void setAccId(String accId) {

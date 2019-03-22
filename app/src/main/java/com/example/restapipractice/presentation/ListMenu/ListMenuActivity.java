@@ -63,9 +63,9 @@ public class ListMenuActivity extends BaseActivity implements ListMenuContract.V
         mAdapter.setOnItemClickListener(new ListMenuAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(ListMenuVM listMenuVM) {
-                Log.d("TestButton","asd");
+
                 showDeleteAlertDialog(listMenuVM);
-                Toast.makeText(ListMenuActivity.this, "TEST " + listMenuVM.getAccId(), Toast.LENGTH_SHORT).show();
+
             }
         });
 
@@ -90,7 +90,9 @@ public class ListMenuActivity extends BaseActivity implements ListMenuContract.V
         builder.setPositiveButton("Yes",new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                mPresenter.deleteAccount(account);
+                String accountId = account.getAccId();
+//                Log.d("Button Del YES ID", accountId +"");
+                mPresenter.deleteAccount(accountId);
             }
         });
         builder.show();
@@ -99,7 +101,6 @@ public class ListMenuActivity extends BaseActivity implements ListMenuContract.V
     @Override
     protected void onResume() {
         super.onResume();
-        Log.d("ON RESUME","RESUME");
         retrieveMenuList();
 
     }
@@ -129,7 +130,6 @@ public class ListMenuActivity extends BaseActivity implements ListMenuContract.V
 
     @Override
     public void showListMenu(List<ListMenuVM> ListMenuVMList) {
-        Log.d("ListMenuVMList SIZE = " , ListMenuVMList.size()+"");
 
         mAdapter.setMenuList(ListMenuVMList);
 

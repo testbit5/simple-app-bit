@@ -25,5 +25,5 @@ public interface AccountRepository {
 
     Observable<Boolean> saveAccount(Account saveAccount);
 
-    Observable<Boolean> deleteAccount(Account deleteAccount);
+    Observable<Boolean> deleteAccount(String accountId);
 }

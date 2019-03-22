@@ -10,16 +10,18 @@ public class DeleteUseCase extends UseCase {
 
     private AccountRepository mAccountRepository;
     private Account mAccount;
+    private String accountId;
     public DeleteUseCase(AccountRepository repository){
         mAccountRepository = repository;
     }
 
-    public void setParam(Account account) {
-        mAccount = account;
+    public void setParam(String accountId){
+//        mAccount = account;
+        this.accountId = accountId;
     }
 
     @Override
     protected Observable buildUseCaseObservable() {
-        return mAccountRepository.deleteAccount(mAccount);
+        return mAccountRepository.deleteAccount(accountId);
     }
 }

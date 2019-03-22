@@ -53,7 +53,7 @@ public class LocalAccountDataSource implements AccountDataSource {
     }
 
     @Override
-    public Observable<Boolean> deleteAccount(Account deleteAccount) {
-        return mLocalApi.deleteAccount(deleteAccount);
+    public Observable<Boolean> deleteAccount(String accountId) {
+        return mLocalApi.deleteAccount(accountId);
     }
 }

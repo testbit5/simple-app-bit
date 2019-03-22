@@ -42,7 +42,7 @@ public class CloudAccountDataSource implements AccountDataSource {
     }
 
     @Override
-    public Observable<Boolean> deleteAccount(Account deleteAccount) {
+    public Observable<Boolean> deleteAccount(String accountId) {
         return null;
     }
 

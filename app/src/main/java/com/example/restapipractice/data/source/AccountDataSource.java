@@ -24,5 +24,5 @@ public interface AccountDataSource {
 
     Observable<Boolean> saveAccount(Account saveAccount);
 
-    Observable<Boolean> deleteAccount(Account deleteAccount);
+    Observable<Boolean> deleteAccount(String accountId);
 }

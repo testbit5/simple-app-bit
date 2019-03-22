@@ -1,6 +1,8 @@
 package com.example.restapipractice.data.realm;
 
 
+import android.util.Log;
+
 import com.example.restapipractice.data.LocalApi;
 import com.example.restapipractice.data.model.Account;
 import com.example.restapipractice.data.model.LoginConfigInfo;
@@ -32,11 +34,10 @@ public class RealmDataSource implements LocalApi {
 
 
     @Override
-    public Observable<Boolean> deleteAccount(Account account) {
+    public Observable<Boolean> deleteAccount(String accountId) {
         Realm realm = Realm.getDefaultInstance();
         RealmResults<AccountRealm> results = realm.where(AccountRealm.class)
-                .equalTo(AccountRealm.ACCOUNT_ID,account.getAccount_id()).findAll();
-
+                .equalTo(AccountRealm.ACCOUNT_ID,accountId).findAll();
         realm.executeTransaction(transactionRealm -> results.deleteAllFromRealm());
         realm.close();
         return Observable.just(realm.isClosed());

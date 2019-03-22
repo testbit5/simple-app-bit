@@ -82,9 +82,9 @@ public class ListMenuPresenter extends CommonPresenter implements ListMenuContra
     }
 
     @Override
-    public void deleteAccount(ListMenuVM accountVM) {
-        Account account = new Account(accountVM.getAccName(), accountVM.getAccBalance(), accountVM.getAccId());
-        mDeleteUseCase.setParam(account);
+    public void deleteAccount(String accountId) {
+
+        mDeleteUseCase.setParam(accountId);
         mDeleteUseCase.execute(new DisposableObserver() {
             @Override
             public void onNext(Object o) {

@@ -62,7 +62,7 @@ public class ListMenuAdapter extends RecyclerView.Adapter<ListMenuAdapter.ListMe
         holder.holderDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d("OnBindVIewHolder","Test");
+
                 mListener.onItemClick(currentAcc);
             }
         });
