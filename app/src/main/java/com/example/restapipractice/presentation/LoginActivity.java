@@ -100,7 +100,6 @@ public class LoginActivity extends BaseActivity implements LoginActivityContract
     public void startNextScreen() {
         Intent intent = new Intent(LoginActivity.this, ListMenuActivity.class);
         startActivity(intent);
-
     }
 
     @Override
