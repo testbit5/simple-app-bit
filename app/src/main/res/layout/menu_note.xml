@@ -37,8 +37,6 @@
 
         <ImageView
 
-        <Button
-
             android:id="@+id/btn_delete"
             android:layout_width="40dp"
             android:layout_height="40dp"
