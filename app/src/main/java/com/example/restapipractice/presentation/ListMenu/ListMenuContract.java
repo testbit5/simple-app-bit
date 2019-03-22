@@ -13,6 +13,8 @@ public interface ListMenuContract {
     interface View extends BaseView {
         void showListMenu(List<ListMenuVM> ListMenuVMList);
         void showSubtitle(String subtitle);
+        void showIfEmptyLayout();
+        void showIfPopulated();
 
     }
     interface Presenter extends BasePresenter {

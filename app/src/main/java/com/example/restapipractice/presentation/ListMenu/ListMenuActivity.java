@@ -1,10 +1,13 @@
 package com.example.restapipractice.presentation.ListMenu;
 
+import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,19 +30,28 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class ListMenuActivity extends BaseActivity implements ListMenuContract.View {
     private List<ListMenuVM> mListMenuVMList;
-
     private ListMenuAdapter mAdapter;
-
     private ListMenuContract.Presenter mPresenter;
-    Account mAccount;
     TextView txtView_subtitle;
     FloatingActionButton btn_add;
     RecyclerView recyclerView;
+    LinearLayout linearLayout;
+    Button buttonEmptyAdd;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        linearLayout = findViewById(R.id.layoutifempty);
         btn_add = findViewById(R.id.button_add_note);
         btn_add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ListMenuActivity.this, AddAccountActivity.class);
+                startActivity(intent);
+            }
+        });
+        buttonEmptyAdd = findViewById(R.id.buttonEmptyAdd);
+        buttonEmptyAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(ListMenuActivity.this, AddAccountActivity.class);
@@ -63,16 +75,12 @@ public class ListMenuActivity extends BaseActivity implements ListMenuContract.V
         mAdapter.setOnItemClickListener(new ListMenuAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(ListMenuVM listMenuVM) {
-
                 showDeleteAlertDialog(listMenuVM);
-
             }
         });
 
-
         getSubtitle();
-//        retrieveMenuList();
-//        showListMenu(mListMenuVMList);
+
     }
 
 
@@ -142,6 +150,21 @@ public class ListMenuActivity extends BaseActivity implements ListMenuContract.V
     public void showSubtitle(String subtitle) {
         txtView_subtitle.setText(subtitle);
     }
+
+    @SuppressLint("RestrictedApi")
+    @Override
+    public void showIfEmptyLayout() {
+        linearLayout.setVisibility(View.VISIBLE);
+        btn_add.setVisibility(View.GONE);
+    }
+
+    @SuppressLint("RestrictedApi")
+    @Override
+    public void showIfPopulated() {
+        linearLayout.setVisibility(View.GONE);
+        btn_add.setVisibility(View.VISIBLE);
+    }
+
     @Override
     protected void onDestroy() {
         super.onDestroy();

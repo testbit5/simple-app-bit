@@ -4,9 +4,11 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.example.restapipractice.ApplicationComponent;
@@ -34,6 +36,9 @@ public class AddAccountActivity extends BaseActivity implements AddAccountContra
     @BindView(R.id.btnSaveAccount)
     Button mBtnSaveAccount;
 
+    @BindView(R.id.btnBack)
+    ImageButton mImageButton;
+
     private AddAccountPresenter mAddAccountPresenter;
 
     String accName = "";
@@ -50,6 +55,12 @@ public class AddAccountActivity extends BaseActivity implements AddAccountContra
         mAddAccountPresenter = new AddAccountPresenter(ApplicationComponent.provideSaveAccountData(),
                 this);
     }
+
+    @OnClick(R.id.btnBack)
+    void OnClickBtnBack(){
+        this.finish();
+    }
+
 
     @OnClick(R.id.btnSaveAccount)
     void OnClickSaveBtn(){

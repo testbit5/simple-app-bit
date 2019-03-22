@@ -44,6 +44,12 @@ public class ListMenuPresenter extends CommonPresenter implements ListMenuContra
             @Override
             public void onNext(List<Account> accountList) {
                 mView.showListMenu(ListMenuMapper.transform(accountList));
+                if(accountList.isEmpty() ){
+                    mView.showIfEmptyLayout();
+                }
+                else{
+                    mView.showIfPopulated();
+                }
             }
 
             @Override
@@ -83,7 +89,6 @@ public class ListMenuPresenter extends CommonPresenter implements ListMenuContra
 
     @Override
     public void deleteAccount(String accountId) {
-
         mDeleteUseCase.setParam(accountId);
         mDeleteUseCase.execute(new DisposableObserver() {
             @Override
