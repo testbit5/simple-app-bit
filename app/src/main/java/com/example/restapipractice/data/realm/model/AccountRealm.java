@@ -9,6 +9,8 @@ import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
 
 public class AccountRealm extends RealmObject {
+    public static final String ACCOUNT_ID = "accId";
+
     @PrimaryKey
     private String accId;
     private String accName;

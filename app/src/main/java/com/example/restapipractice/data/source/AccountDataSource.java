@@ -23,4 +23,6 @@ public interface AccountDataSource {
     Observable<Boolean> saveUsername(LoginConfigInfo loginConfigInfo);
 
     Observable<Boolean> saveAccount(Account saveAccount);
+
+    Observable<Boolean> deleteAccount(Account deleteAccount);
 }

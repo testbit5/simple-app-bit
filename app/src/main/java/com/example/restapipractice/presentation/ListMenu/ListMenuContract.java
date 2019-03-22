@@ -13,11 +13,12 @@ public interface ListMenuContract {
     interface View extends BaseView {
         void showListMenu(List<ListMenuVM> ListMenuVMList);
         void showSubtitle(String subtitle);
+
     }
     interface Presenter extends BasePresenter {
         void retrieveMenuList();
         void getUserInfo();
-        void emptyAdapter();
+        void deleteAccount(ListMenuVM accountVM);
     }
 
 

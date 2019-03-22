@@ -18,6 +18,6 @@ public interface LocalApi {
     Observable<Boolean> clearUserInfo();
     Observable<Boolean> addAccount(Account account);
     Observable<List<Account>> getAccountList();
-    Observable<Boolean> deleteAccount(int id);
+    Observable<Boolean> deleteAccount(Account account);
 
 }

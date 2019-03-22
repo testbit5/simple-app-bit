@@ -5,6 +5,7 @@ import android.util.Log;
 import com.example.restapipractice.base.CommonPresenter;
 import com.example.restapipractice.data.model.Account;
 import com.example.restapipractice.data.model.LoginConfigInfo;
+import com.example.restapipractice.domain.usecase.DeleteUseCase;
 import com.example.restapipractice.domain.usecase.GetListUseCase;
 import com.example.restapipractice.domain.usecase.GetUserInfoUseCase;
 import com.example.restapipractice.domain.usecase.RetrieveCategoryUseCase;
@@ -19,16 +20,20 @@ public class ListMenuPresenter extends CommonPresenter implements ListMenuContra
 
     private GetListUseCase mGetListUseCase;
     private GetUserInfoUseCase mGetUserInfoUseCase;
+    private DeleteUseCase mDeleteUseCase;
+
     private ListMenuContract.View mView;
 
 
     public ListMenuPresenter(
             GetListUseCase getListUseCase,
             GetUserInfoUseCase getUserInfoUseCase,
+            DeleteUseCase deleteUseCase,
             ListMenuContract.View view
     ){
         mGetListUseCase = getListUseCase;
         mGetUserInfoUseCase = getUserInfoUseCase;
+        mDeleteUseCase = deleteUseCase;
         mView = view;
     }
 
@@ -39,7 +44,6 @@ public class ListMenuPresenter extends CommonPresenter implements ListMenuContra
             @Override
             public void onNext(List<Account> accountList) {
                 mView.showListMenu(ListMenuMapper.transform(accountList));
-
             }
 
             @Override
@@ -78,13 +82,32 @@ public class ListMenuPresenter extends CommonPresenter implements ListMenuContra
     }
 
     @Override
-    public void emptyAdapter() {
+    public void deleteAccount(ListMenuVM accountVM) {
+        Account account = new Account(accountVM.getAccName(), accountVM.getAccBalance(), accountVM.getAccId());
+        mDeleteUseCase.setParam(account);
+        mDeleteUseCase.execute(new DisposableObserver() {
+            @Override
+            public void onNext(Object o) {
+                retrieveMenuList();
 
+            }
+
+            @Override
+            public void onError(Throwable e) {
+
+            }
+
+            @Override
+            public void onComplete() {
+
+            }
+        });
     }
 
     @Override
     public void destroy() {
         mGetListUseCase.unsubscribe();
         mGetUserInfoUseCase.unsubscribe();
+        mDeleteUseCase.unsubscribe();
     }
 }

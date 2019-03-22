@@ -32,6 +32,17 @@ public class RealmDataSource implements LocalApi {
 
 
     @Override
+    public Observable<Boolean> deleteAccount(Account account) {
+        Realm realm = Realm.getDefaultInstance();
+        RealmResults<AccountRealm> results = realm.where(AccountRealm.class)
+                .equalTo(AccountRealm.ACCOUNT_ID,account.getAccount_id()).findAll();
+
+        realm.executeTransaction(transactionRealm -> results.deleteAllFromRealm());
+        realm.close();
+        return Observable.just(realm.isClosed());
+    }
+
+    @Override
     public Observable<LoginConfigInfo> getUserInfo() {
         Realm realm = Realm.getDefaultInstance();
         UserInfoRealm userInfoRealm = realm.where(UserInfoRealm.class).findFirst();
@@ -101,26 +112,5 @@ public class RealmDataSource implements LocalApi {
             return null;
         }
     }
-
-    @Override
-    public Observable<Boolean> deleteAccount(int id) {
-//        Realm realm = Realm.getDefaultInstance();
-//        RealmResults<UserInfoRealm> userInfoRealm = realm
-//                .where(UserInfoRealm.class)
-//                .findAll()
-//                .deleteFromRealm();
-//        if(userInfoRealm != null){
-//            realm.close();
-//            return Observable.just(userInfoRealm);
-//        }else{
-//            return Observable.just(userInfoRealm);
-//        }
-
-        return null;
-    }
-
-//    @Override
-//    public Observable<Boolean> writeUserInfo(LoginConfigInfo loginConfigInfo){}
-
 
 }

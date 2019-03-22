@@ -51,4 +51,9 @@ public class LocalAccountDataSource implements AccountDataSource {
     public Observable<LoginConfigInfo> retrieveUserInfo() {
         return mLocalApi.getUserInfo();
     }
+
+    @Override
+    public Observable<Boolean> deleteAccount(Account deleteAccount) {
+        return mLocalApi.deleteAccount(deleteAccount);
+    }
 }
